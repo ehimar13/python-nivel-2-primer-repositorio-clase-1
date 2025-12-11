@@ -15,7 +15,7 @@ async def on_ready():
 async def hello(ctx):
     await ctx.send(f'Hola, soy un bot {bot.user}!')
 
-@bot.command()
+@bot.command()#
 async def pasw(ctx):
     await ctx.send(gen_pass(10))
 
