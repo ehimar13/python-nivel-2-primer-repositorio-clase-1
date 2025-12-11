@@ -1,13 +1,29 @@
-meme_dict = {
-            "CRINGE": "Algo excepcionalmente raro o embarazoso",
-            "LOL": "Una respuesta común a algo gracioso",
-            
-            }
+import discord
+from discord.ext import commands
+from bot_logic import gen_pass
 
-word = input("Escribe una palabra que no entiendas (¡con mayúsculas!): ")
+intents = discord.Intents.default()
+intents.message_content = True
 
-if word in meme_dict.keys():
-    print(meme_dict[word])
-else:
-    print("tu palabra no esta en el diccionario")
-    # ¿Qué hacer si no se encuentra la palabra?
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Hemos iniciado sesión como {bot.user}')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f'Hola, soy un bot {bot.user}!')
+
+@bot.command()
+async def pasw(ctx):
+    await ctx.send(gen_pass(10))
+
+@bot.command()
+async def saludar(ctx):
+    await ctx.send('hola estudiantes nivel 2')
+
+
+bot.run("")
+
+
