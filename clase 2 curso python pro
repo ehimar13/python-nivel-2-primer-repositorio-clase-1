@@ -1,0 +1,15 @@
+###
+import random
+caracteres = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789"
+
+length = int(input("que longitud quieres que tenga la contranseña? "))
+
+clave = "" 
+
+
+for i in range(length):
+    simbolo = random.choice(caracteres)
+    clave += simbolo
+
+print("la contrasena generada es", clave)
+
